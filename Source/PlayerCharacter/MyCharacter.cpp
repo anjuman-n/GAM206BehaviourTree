@@ -53,6 +53,13 @@ void AMyCharacter::BeginPlay()
 			SubSystem->AddMappingContext(InputMapping, 0); // 0 for hieghst priority
 		}
 	}
+	//handle montage by add dynamic
+    UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+    if(AnimInstance != nullptr)
+    {
+ 
+        AnimInstance->OnPlayMontageNotifyBegin.AddDynamic(this, &AMyCharacter::HandleMontageBeginNotify);
+    }
 	
 }
 
@@ -77,6 +84,9 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
  
 		// Bind jump input (calls Jump() when IA_Jump is triggered)
 		Input->BindAction(IA_Jump, ETriggerEvent::Triggered, this, &AMyCharacter::Jump);
+		//
+		Input->BindAction(IA_Attack, ETriggerEvent::Triggered, this, &AMyCharacter::Attack);
+		Input->BindAction(IA_Block, ETriggerEvent::Triggered, this, &AMyCharacter::Block);
 	}
 
 }
@@ -128,5 +138,56 @@ void AMyCharacter::RegisterSightStimulus()
 	if (SightStimulus)
 	{
 		SightStimulus->RegisterForSense(TSubclassOf<UAISense_Sight>()); // Register for sight sense
+	}
+}
+//attack function
+void AMyCharacter::Attack()
+{
+    UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+    if(!bIsAttacking)
+    {
+        
+        if (AnimInstance && AttackMontage)
+        {
+            AnimInstance->Montage_Play(AttackMontage);
+        }
+        bIsAttacking = true;
+    }
+    else
+    {
+        AttackComboCount++;
+    }
+}
+void AMyCharacter :: OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
+{
+    //
+    UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+    AnimInstance->Montage_Stop(5.0f, AttackMontage); // stop montage with blend out time of 1.0 second
+    bIsAttacking = false;
+ 
+}
+
+void AMyCharacter::HandleMontageBeginNotify(FName NotifyName, const FBranchingPointNotifyPayload &BranchingPointPayload)
+{
+    AttackComboCount--;
+    if (AttackComboCount <= 0)
+    {
+        bIsAttacking = false;
+        //Get anim instance and stop montage
+        UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+        if(AnimInstance != nullptr)
+        {
+            AnimInstance->Montage_Stop(0.4f, AttackMontage);
+        }
+ 
+    }
+}
+//block montage function
+void AMyCharacter::Block()
+{
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance && BlockMontage)
+	{
+		AnimInstance->Montage_Play(BlockMontage);
 	}
 }

@@ -47,10 +47,25 @@ protected:
 	// Jump action input (class UInputAction*, appears in Blueprint under EnhancedInput)
 	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
 	class UInputAction* IA_Jump;
- 
+
 	// Camera/look input (class UInputAction*, appears in Blueprint under EnhancedInput)
 	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
 	class UInputAction* IA_Look;
+  // Jump action input (class UInputAction*, appears in Blueprint under EnhancedInput)
+    UPROPERTY(EditAnywhere, Category = "EnhancedInput")
+    class UInputAction* IA_Attack;
+	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
+    class UInputAction* IA_Block;
+    //animation montage
+    //animation montage
+    
+    UPROPERTY(EditAnywhere, Category = "Animation")
+    class UAnimMontage* AttackMontage;
+	//Block montage when attack ends
+	UPROPERTY(EditAnywhere, Category = "Animation")
+	class UAnimMontage* BlockMontage;
+    //
+    int AttackComboCount = 0;
 	// stimulus to be used for sight
 	UPROPERTY(EditAnywhere, Category = "AI")
 	class UAIPerceptionStimuliSourceComponent* SightStimulus;
@@ -64,6 +79,23 @@ public:
 	void Move(const FInputActionValue& InputValue);
 	void Look(const FInputActionValue& InputValue);
 	void Jump();
+	//attack function
+	UFUNCTION(BlueprintCallable)
+	void Attack();
+	//	callback for montage end
+    UFUNCTION()
+    void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+	//block montage function
+	UFUNCTION(BlueprintCallable)
+	void Block();	
+	//flag for attack
+    bool bIsAttacking = false;
+    // handle notify montage animation end
+    UFUNCTION()
+    void HandleMontageBeginNotify(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
+ 
+	//get attack montage
+	
 	//stimulus registration function
 	void RegisterSightStimulus();
 
