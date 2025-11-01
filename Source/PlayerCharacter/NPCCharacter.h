@@ -6,11 +6,14 @@
 //
 #include "GameFramework/Character.h"
 #include "BehaviorTree/BehaviorTree.h"
+//import combat interface
+#include "Animation/AnimMontage.h"
+#include "CombatInterface.h"
 //
 #include "NPCCharacter.generated.h"
 
 UCLASS()
-class PLAYERCHARACTER_API ANPCCharacter : public ACharacter
+class PLAYERCHARACTER_API ANPCCharacter : public ACharacter, public ICombatInterface
 {
 	GENERATED_BODY()	
 
@@ -24,6 +27,10 @@ protected:
 
 
 public:	
+	// attack montage
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
+	UAnimMontage* AttackMontage;
+
 	ANPCCharacter();
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -32,6 +39,8 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	//Get the behavior tree component prototype
 	UBehaviorTree* GetBehaviorTreeComponent() const;
+	// interface mellee attack function implementation
+	int MeleeAttack_Implementation() override;
 
 
 };

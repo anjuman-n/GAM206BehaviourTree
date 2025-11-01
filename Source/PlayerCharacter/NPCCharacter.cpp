@@ -36,3 +36,12 @@ UBehaviorTree* ANPCCharacter::GetBehaviorTreeComponent() const
 {
 	return Tree;
 }
+
+int ANPCCharacter::MeleeAttack_Implementation()
+{
+	if(AttackMontage)
+	{
+		PlayAnimMontage(AttackMontage);
+	}
+    return 0;
+}

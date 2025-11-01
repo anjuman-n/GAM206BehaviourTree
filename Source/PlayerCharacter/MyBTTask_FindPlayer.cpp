@@ -25,12 +25,12 @@ EBTNodeResult::Type UMyBTTask_FindPlayer::ExecuteTask(UBehaviorTreeComponent& Ow
         {
             FNavLocation Loc;
             // get the naviagation system and generate a random location near the player
-            if(auto* const NavSys = UNavigationSystemV1::GetCurrent(GEngine->GameViewport->GetWorld()))
+            if(auto* const NavSys = UNavigationSystemV1::GetCurrent(GEngine->GameViewport->GetWorld())) // get the current navigation system
             {
                 // try to get a random location near the player
-                if (NavSys->GetRandomPointInNavigableRadius(PlayerLocation, 150.f,Loc))
+                if (NavSys->GetRandomPointInNavigableRadius(PlayerLocation, 150.f,Loc))// if successful
                 {
-                    OwnerComp.GetBlackboardComponent() -> SetValueAsVector(KeyName, Loc.Location);
+                    OwnerComp.GetBlackboardComponent() -> SetValueAsVector(KeyName, Loc.Location);// set the location in the blackboard
                     
                     return EBTNodeResult::Succeeded;
                 }

@@ -1,5 +1,53 @@
 [
 	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/CombatInterface.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/CombatInterface.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/MyBTService_IsPlayerInMeleeRange.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/MyBTService_IsPlayerInMeleeRange.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/MyBTTask_FindPlayer.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/MyBTTask_FindPlayer.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
 		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/MyBTTask_FindRandomLocation.cpp",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
@@ -9,6 +57,22 @@
 	},
 	{
 		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/MyBTTask_FindRandomLocation.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/MyBTTask_MeleeAttack.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/MyBTTask_MeleeAttack.h",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
 			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"

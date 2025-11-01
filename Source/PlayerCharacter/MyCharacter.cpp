@@ -59,6 +59,7 @@ void AMyCharacter::BeginPlay()
     {
  
         AnimInstance->OnPlayMontageNotifyBegin.AddDynamic(this, &AMyCharacter::HandleMontageBeginNotify);
+		//AnimInstance->OnMontageEnded.AddDynamic(this, &AMyCharacter::OnAttackMontageEnded);
     }
 	
 }
@@ -162,7 +163,7 @@ void AMyCharacter :: OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupt
 {
     //
     UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
-    AnimInstance->Montage_Stop(5.0f, AttackMontage); // stop montage with blend out time of 1.0 second
+    AnimInstance->Montage_Stop(2.0f, AttackMontage); // stop montage with blend out time of 1.0 second
     bIsAttacking = false;
  
 }
