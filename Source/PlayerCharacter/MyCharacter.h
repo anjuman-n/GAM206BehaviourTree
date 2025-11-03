@@ -14,6 +14,9 @@
 #include "Perception/AIPerceptionStimuliSourceComponent.h" // For UAIPerceptionStimuliSourceComponent
 #include "Perception/AISense_Sight.h" // For UAISense_Sight
 //
+// include UUserWidget
+#include "HealthBarWidget.h"
+//
 #include "Components/CapsuleComponent.h" // For GetCapsuleComponent()
 #include "MyCharacter.generated.h"
 
@@ -57,7 +60,6 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
     class UInputAction* IA_Block;
     //animation montage
-    //animation montage
     
     UPROPERTY(EditAnywhere, Category = "Animation")
     class UAnimMontage* AttackMontage;
@@ -69,6 +71,8 @@ protected:
 	// stimulus to be used for sight
 	UPROPERTY(EditAnywhere, Category = "AI")
 	class UAIPerceptionStimuliSourceComponent* SightStimulus;
+	
+
 
 public:	
 	// Called every frame

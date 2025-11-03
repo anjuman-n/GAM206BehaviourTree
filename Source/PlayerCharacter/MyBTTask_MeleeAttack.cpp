@@ -17,16 +17,16 @@ EBTNodeResult::Type UMyBTTask_MeleeAttack::ExecuteTask(UBehaviorTreeComponent &O
         return EBTNodeResult::Succeeded;
     }
     // if the player is in melee range then get AI controller and NPC
-    ANPCAIController* AICon = Cast<ANPCAIController>(OwnerComp.GetAIOwner());
+    ANPCAIController* AICon = Cast<ANPCAIController>(OwnerComp.GetAIOwner()); // Get the AI controller
 
-    ANPCCharacter* NPC = Cast<ANPCCharacter>(AICon->GetPawn());
+    ANPCCharacter* NPC = Cast<ANPCCharacter>(AICon->GetPawn()); // Get the NPC character
     // if the NPC supports the ICombatInterface, cast and call melee attack function
     if(auto* const CombatNPC = Cast<ICombatInterface>(NPC))
     {
-        //check if mongathe has finished playing
+        //check if montage has finished playing
         if(MontageHasFinished(NPC))
         {
-            CombatNPC->Execute_MeleeAttack(NPC);
+            CombatNPC->Execute_MeleeAttack(NPC); // Call the MeleeAttack function
         }
         
     }

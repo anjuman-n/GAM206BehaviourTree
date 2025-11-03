@@ -23,10 +23,12 @@ class PLAYERCHARACTER_API UMyBTService_IsPlayerInMeleeRange : public UBTService_
 	private:
 	// uproperty edit anywhere for melee range
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="AI", meta = (AllowPrivateAccess = "true"))
-	float MeleeRange = 100.f;
-	public:	
-	UMyBTService_IsPlayerInMeleeRange();
+	float MeleeRange = 100.f; // default melee range
 	
-	virtual void OnBecomeRelevant(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
+	public:	
+	UMyBTService_IsPlayerInMeleeRange();// Constructor
+
+	
+	virtual void OnBecomeRelevant(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override; // Override the OnBecomeRelevant function
 	
 };

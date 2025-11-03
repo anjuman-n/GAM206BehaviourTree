@@ -62,6 +62,7 @@ void AMyCharacter::BeginPlay()
 		//AnimInstance->OnMontageEnded.AddDynamic(this, &AMyCharacter::OnAttackMontageEnded);
     }
 	
+
 }
 
 // Called every frame

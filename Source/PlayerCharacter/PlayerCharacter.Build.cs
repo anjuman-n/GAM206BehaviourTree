@@ -19,6 +19,7 @@ public class PlayerCharacter : ModuleRules
 			"GameplayStateTreeModule",
 			"UMG",
 			"Slate",
+			"SlateCore",
 			"NavigationSystem"
 		});
 

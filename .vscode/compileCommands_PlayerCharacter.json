@@ -16,6 +16,46 @@
 		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
 	},
 	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/Consts.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/HealthBarWidget.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/HealthBarWidget.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/HealthManager.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/HealthManager.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
 		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/MyBTService_IsPlayerInMeleeRange.cpp",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
@@ -785,6 +825,22 @@
 	},
 	{
 		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/Variant_SideScrolling/UI/SideScrollingUI.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/WidgetActor.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.6/Engine/Source"
+	},
+	{
+		"file": "/Users/anjuman/OnMacStorage/PlayerCharacter/Source/PlayerCharacter/WidgetActor.h",
 		"arguments": [
 			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
 			"@/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter/PlayerCharacter.1.rsp"

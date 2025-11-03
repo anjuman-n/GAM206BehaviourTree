@@ -10,9 +10,6 @@
 ANPCAIController::ANPCAIController(FObjectInitializer const& ObjectInitializer) : Super(ObjectInitializer)
 {
     setupSightConfig();
-    if(GEngine)
-            GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Sight Config created successfully"));
-
     
 }
 //override the possess function
