@@ -18,6 +18,11 @@
 #include "HealthBarWidget.h"
 //
 #include "Components/CapsuleComponent.h" // For GetCapsuleComponent()
+//include box component
+#include "Components/BoxComponent.h"
+//npc character header
+#include "NPCCharacter.h"
+//
 #include "MyCharacter.generated.h"
 
 UCLASS()
@@ -71,7 +76,16 @@ protected:
 	// stimulus to be used for sight
 	UPROPERTY(EditAnywhere, Category = "AI")
 	class UAIPerceptionStimuliSourceComponent* SightStimulus;
-	
+
+	// let's create a box collider component on the sword socket to detect hit
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Collider component")
+	class UBoxComponent* SwordCollisionBox;
+	//collider location setup in blueprint FVector BoxExtent
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Collider component")
+	FVector SwordBoxExtent = FVector(-2.0f, 0.0f, 0.0f);
+	//collider size setup in blueprint FVector BoxExtent
+
+
 
 
 public:	
@@ -102,5 +116,20 @@ public:
 	
 	//stimulus registration function
 	void RegisterSightStimulus();
+	//
+	void AttackStart();
+	void AttackEnd();
+	// overlap function for sword collider
+	UFUNCTION()
+	void OnAttackOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
+		UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	// overlap end function for sword collider
+	UFUNCTION()
+	void OnAttackOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
+		UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+
+
+
 
 };

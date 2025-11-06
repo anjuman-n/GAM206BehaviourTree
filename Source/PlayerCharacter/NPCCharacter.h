@@ -9,6 +9,8 @@
 //import combat interface
 #include "Animation/AnimMontage.h"
 #include "CombatInterface.h"
+//import health component
+#include "HealthComponent.h"
 //
 #include "NPCCharacter.generated.h"
 
@@ -24,6 +26,10 @@ protected:
 	//add behavior tree component and blackboard component
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
 	UBehaviorTree* Tree; // set in editor
+	//health component
+	//create NPC box collider component to receive damage
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UHealthComponent* HealthComponent;
 
 
 public:	

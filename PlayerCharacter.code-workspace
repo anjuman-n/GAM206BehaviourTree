@@ -37,7 +37,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Debug",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -54,7 +54,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Debug",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -74,7 +74,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Debug",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex",
 					"-clean"
 				],
@@ -92,7 +92,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"DebugGame",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -109,7 +109,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"DebugGame",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -129,7 +129,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"DebugGame",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex",
 					"-clean"
 				],
@@ -147,7 +147,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Development",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -164,7 +164,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Development",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -184,7 +184,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Development",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex",
 					"-clean"
 				],
@@ -202,7 +202,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Test",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -219,7 +219,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Test",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -239,7 +239,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Test",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex",
 					"-clean"
 				],
@@ -257,7 +257,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Shipping",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -274,7 +274,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Shipping",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -294,7 +294,7 @@
 					"PlayerCharacter",
 					"Mac",
 					"Shipping",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex",
 					"-clean"
 				],
@@ -312,7 +312,7 @@
 					"PlayerCharacterEditor",
 					"Mac",
 					"Debug",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -329,7 +329,7 @@
 					"PlayerCharacterEditor",
 					"Mac",
 					"Debug",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -349,7 +349,7 @@
 					"PlayerCharacterEditor",
 					"Mac",
 					"Debug",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex",
 					"-clean"
 				],
@@ -367,7 +367,7 @@
 					"PlayerCharacterEditor",
 					"Mac",
 					"DebugGame",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -384,7 +384,7 @@
 					"PlayerCharacterEditor",
 					"Mac",
 					"DebugGame",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -404,7 +404,7 @@
 					"PlayerCharacterEditor",
 					"Mac",
 					"DebugGame",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex",
 					"-clean"
 				],
@@ -422,7 +422,7 @@
 					"PlayerCharacterEditor",
 					"Mac",
 					"Development",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -439,7 +439,7 @@
 					"PlayerCharacterEditor",
 					"Mac",
 					"Development",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -459,7 +459,7 @@
 					"PlayerCharacterEditor",
 					"Mac",
 					"Development",
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-waitmutex",
 					"-clean"
 				],
@@ -477,70 +477,70 @@
 			{
 				"name": "Launch PlayerCharacter (Debug)",
 				"request": "launch",
-				"program": "/Users/anjuman/OnMacStorage/PlayerCharacter/Binaries/Mac/UnrealGame-Mac-Debug.app/Contents/MacOS/UnrealGame-Mac-Debug",
+				"program": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/Binaries/Mac/UnrealGame-Mac-Debug.app/Contents/MacOS/UnrealGame-Mac-Debug",
 				"preLaunchTask": "PlayerCharacter Mac Debug Build",
 				"args": [
 				],
 				"cwd": "/Users/Shared/Epic Games/UE_5.6",
 				"type": "lldb",
 				"sourceFileMap": {
-					"/UEVFS/PlayerCharacter": "/Users/anjuman/OnMacStorage/PlayerCharacter",
+					"/UEVFS/GAM206BehaviourTree": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree",
 					"/UEVFS/Root": "/Users/Shared/Epic Games/UE_5.6"
 				}
 			},
 			{
 				"name": "Launch PlayerCharacter (DebugGame)",
 				"request": "launch",
-				"program": "/Users/anjuman/OnMacStorage/PlayerCharacter/Binaries/Mac/UnrealGame-Mac-DebugGame.app/Contents/MacOS/UnrealGame-Mac-DebugGame",
+				"program": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/Binaries/Mac/UnrealGame-Mac-DebugGame.app/Contents/MacOS/UnrealGame-Mac-DebugGame",
 				"preLaunchTask": "PlayerCharacter Mac DebugGame Build",
 				"args": [
 				],
 				"cwd": "/Users/Shared/Epic Games/UE_5.6",
 				"type": "lldb",
 				"sourceFileMap": {
-					"/UEVFS/PlayerCharacter": "/Users/anjuman/OnMacStorage/PlayerCharacter",
+					"/UEVFS/GAM206BehaviourTree": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree",
 					"/UEVFS/Root": "/Users/Shared/Epic Games/UE_5.6"
 				}
 			},
 			{
 				"name": "Launch PlayerCharacter (Development)",
 				"request": "launch",
-				"program": "/Users/anjuman/OnMacStorage/PlayerCharacter/Binaries/Mac/UnrealGame.app/Contents/MacOS/UnrealGame",
+				"program": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/Binaries/Mac/UnrealGame.app/Contents/MacOS/UnrealGame",
 				"preLaunchTask": "PlayerCharacter Mac Development Build",
 				"args": [
 				],
 				"cwd": "/Users/Shared/Epic Games/UE_5.6",
 				"type": "lldb",
 				"sourceFileMap": {
-					"/UEVFS/PlayerCharacter": "/Users/anjuman/OnMacStorage/PlayerCharacter",
+					"/UEVFS/GAM206BehaviourTree": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree",
 					"/UEVFS/Root": "/Users/Shared/Epic Games/UE_5.6"
 				}
 			},
 			{
 				"name": "Launch PlayerCharacter (Test)",
 				"request": "launch",
-				"program": "/Users/anjuman/OnMacStorage/PlayerCharacter/Binaries/Mac/UnrealGame-Mac-Test.app/Contents/MacOS/UnrealGame-Mac-Test",
+				"program": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/Binaries/Mac/UnrealGame-Mac-Test.app/Contents/MacOS/UnrealGame-Mac-Test",
 				"preLaunchTask": "PlayerCharacter Mac Test Build",
 				"args": [
 				],
 				"cwd": "/Users/Shared/Epic Games/UE_5.6",
 				"type": "lldb",
 				"sourceFileMap": {
-					"/UEVFS/PlayerCharacter": "/Users/anjuman/OnMacStorage/PlayerCharacter",
+					"/UEVFS/GAM206BehaviourTree": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree",
 					"/UEVFS/Root": "/Users/Shared/Epic Games/UE_5.6"
 				}
 			},
 			{
 				"name": "Launch PlayerCharacter (Shipping)",
 				"request": "launch",
-				"program": "/Users/anjuman/OnMacStorage/PlayerCharacter/Binaries/Mac/UnrealGame-Mac-Shipping.app/Contents/MacOS/UnrealGame-Mac-Shipping",
+				"program": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/Binaries/Mac/UnrealGame-Mac-Shipping.app/Contents/MacOS/UnrealGame-Mac-Shipping",
 				"preLaunchTask": "PlayerCharacter Mac Shipping Build",
 				"args": [
 				],
 				"cwd": "/Users/Shared/Epic Games/UE_5.6",
 				"type": "lldb",
 				"sourceFileMap": {
-					"/UEVFS/PlayerCharacter": "/Users/anjuman/OnMacStorage/PlayerCharacter",
+					"/UEVFS/GAM206BehaviourTree": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree",
 					"/UEVFS/Root": "/Users/Shared/Epic Games/UE_5.6"
 				}
 			},
@@ -550,12 +550,12 @@
 				"program": "/Users/Shared/Epic Games/UE_5.6/Engine/Binaries/Mac/UnrealEditor-Mac-Debug.app/Contents/MacOS/UnrealEditor-Mac-Debug",
 				"preLaunchTask": "PlayerCharacterEditor Mac Debug Build",
 				"args": [
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject"
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject"
 				],
 				"cwd": "/Users/Shared/Epic Games/UE_5.6",
 				"type": "lldb",
 				"sourceFileMap": {
-					"/UEVFS/PlayerCharacter": "/Users/anjuman/OnMacStorage/PlayerCharacter",
+					"/UEVFS/GAM206BehaviourTree": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree",
 					"/UEVFS/Root": "/Users/Shared/Epic Games/UE_5.6"
 				}
 			},
@@ -565,12 +565,12 @@
 				"program": "/Users/Shared/Epic Games/UE_5.6/Engine/Binaries/Mac/UnrealEditor-Mac-DebugGame.app/Contents/MacOS/UnrealEditor-Mac-DebugGame",
 				"preLaunchTask": "PlayerCharacterEditor Mac DebugGame Build",
 				"args": [
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject"
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject"
 				],
 				"cwd": "/Users/Shared/Epic Games/UE_5.6",
 				"type": "lldb",
 				"sourceFileMap": {
-					"/UEVFS/PlayerCharacter": "/Users/anjuman/OnMacStorage/PlayerCharacter",
+					"/UEVFS/GAM206BehaviourTree": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree",
 					"/UEVFS/Root": "/Users/Shared/Epic Games/UE_5.6"
 				}
 			},
@@ -580,12 +580,12 @@
 				"program": "/Users/Shared/Epic Games/UE_5.6/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor",
 				"preLaunchTask": "PlayerCharacterEditor Mac Development Build",
 				"args": [
-					"/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject"
+					"/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject"
 				],
 				"cwd": "/Users/Shared/Epic Games/UE_5.6",
 				"type": "lldb",
 				"sourceFileMap": {
-					"/UEVFS/PlayerCharacter": "/Users/anjuman/OnMacStorage/PlayerCharacter",
+					"/UEVFS/GAM206BehaviourTree": "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree",
 					"/UEVFS/Root": "/Users/Shared/Epic Games/UE_5.6"
 				}
 			},
@@ -598,7 +598,7 @@
 				"args": [
 					"-projectfiles",
 					"-vscode",
-					"-project=/Users/anjuman/OnMacStorage/PlayerCharacter/PlayerCharacter.uproject",
+					"-project=/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/PlayerCharacter.uproject",
 					"-game",
 					"-engine",
 					"-dotnet"

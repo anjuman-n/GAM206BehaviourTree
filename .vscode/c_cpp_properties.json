@@ -14,7 +14,7 @@
             "cppStandard": "c++20",
             "intelliSenseMode": "clang-arm64",
             "compileCommands": [
-                "/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_PlayerCharacter.json"
+                "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/.vscode/compileCommands_PlayerCharacter.json"
             ]
         },
         {
@@ -31,7 +31,7 @@
             "cppStandard": "c++20",
             "intelliSenseMode": "clang-arm64",
             "compileCommands": [
-                "/Users/anjuman/OnMacStorage/PlayerCharacter/.vscode/compileCommands_Default.json"
+                "/Users/anjuman/OnMacStorage/unreal engine/GAM206BehaviourTree/.vscode/compileCommands_Default.json"
             ]
         }
     ],

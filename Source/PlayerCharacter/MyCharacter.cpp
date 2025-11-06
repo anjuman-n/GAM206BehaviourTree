@@ -33,6 +33,18 @@ AMyCharacter::AMyCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	FollowCamera->bUsePawnControlRotation = false;
 
+	
+	// collider for sword socket
+	SwordCollisionBox = CreateDefaultSubobject<UBoxComponent>("SwordCollisionBox");
+	if(SwordCollisionBox)
+	{
+		FAttachmentTransformRules AttachRules(EAttachmentRule::SnapToTarget, 
+			EAttachmentRule::SnapToTarget, EAttachmentRule::KeepWorld, false);
+		SwordCollisionBox->AttachToComponent(GetMesh(), AttachRules, "Sword_joint");
+		// Initialize box size
+		SwordCollisionBox->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
+	
+	}
 }
 
 // Called when the game starts or when spawned
@@ -59,9 +71,16 @@ void AMyCharacter::BeginPlay()
     {
  
         AnimInstance->OnPlayMontageNotifyBegin.AddDynamic(this, &AMyCharacter::HandleMontageBeginNotify);
-		//AnimInstance->OnMontageEnded.AddDynamic(this, &AMyCharacter::OnAttackMontageEnded);
+		AnimInstance->OnMontageEnded.AddDynamic(this, &AMyCharacter::OnAttackMontageEnded);
     }
-	
+	// register sword overlap events
+	if(SwordCollisionBox)
+	{
+		SwordCollisionBox->OnComponentBeginOverlap.AddDynamic(this, &AMyCharacter::OnAttackOverlapBegin);
+		SwordCollisionBox->OnComponentEndOverlap.AddDynamic(this, &AMyCharacter::OnAttackOverlapEnd);
+		//set initial collision to no collision
+		AttackEnd();
+	}
 
 }
 
@@ -142,9 +161,62 @@ void AMyCharacter::RegisterSightStimulus()
 		SightStimulus->RegisterForSense(TSubclassOf<UAISense_Sight>()); // Register for sight sense
 	}
 }
-//attack function
+
+void AMyCharacter::AttackStart()
+{
+	SwordCollisionBox->SetCollisionProfileName("Sword");//set collision profile to weapon to detect hit
+	SwordCollisionBox->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+}
+
+void AMyCharacter::AttackEnd()
+{
+	SwordCollisionBox->SetCollisionProfileName("Sword");//set collision profile to weapon to detect hit
+	SwordCollisionBox->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+}
+
+void AMyCharacter::OnAttackOverlapBegin(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
+{
+		
+	// other actor is the actor that is overlapping with the sword collider
+	if(OtherActor == this)
+	{
+		return;
+	}
+	//if other actor is not null and it's NPC character then apply damage
+	if(OtherActor)
+	{
+		ANPCCharacter* NPCCharacter = Cast<ANPCCharacter>(OtherActor);
+		if(NPCCharacter)
+		{
+			//get health component of NPC and apply damage
+			UHealthComponent* HealthComp = NPCCharacter->FindComponentByClass<UHealthComponent>();
+			if(HealthComp)
+			{
+				HealthComp->TakeDamage(20); // apply 20 damage
+				if(GEngine)
+				{
+					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Sword Overlap with NPC Character - Damage Applied"));
+				}
+			}
+		}
+	}
+}
+void AMyCharacter::OnAttackOverlapEnd(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex)
+{
+	// other actor is the actor that is overlapping with the sword collider
+	if(OtherActor && (OtherActor != this) && OtherComp)
+	{
+		if(GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Sword Overlap Ended"));
+		}
+	}	
+}
+
+// attack function
 void AMyCharacter::Attack()
 {
+	AttackStart();
     UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
     if(!bIsAttacking)
     {
@@ -157,20 +229,28 @@ void AMyCharacter::Attack()
     }
     else
     {
-        AttackComboCount++;
+		AttackComboCount++;
+
     }
 }
+
 void AMyCharacter :: OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 {
     //
-    UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
-    AnimInstance->Montage_Stop(2.0f, AttackMontage); // stop montage with blend out time of 1.0 second
-    bIsAttacking = false;
- 
+  if (Montage == AttackMontage)
+    {
+        bIsAttacking = false;
+        AttackComboCount = 0;
+
+        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Montage Ended — Reset Combo"));
+    }
+	AttackEnd();
 }
 
 void AMyCharacter::HandleMontageBeginNotify(FName NotifyName, const FBranchingPointNotifyPayload &BranchingPointPayload)
 {
+	
+
     AttackComboCount--;
     if (AttackComboCount <= 0)
     {
