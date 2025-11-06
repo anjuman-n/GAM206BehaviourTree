@@ -45,6 +45,14 @@ AMyCharacter::AMyCharacter()
 		SwordCollisionBox->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
 	
 	}
+// Automatically find the WidgetActor in the level
+    TArray<AActor*> FoundActors;
+    UGameplayStatics::GetAllActorsOfClass(GetWorld(), AWidgetActor::StaticClass(), FoundActors);
+
+    if (FoundActors.Num() > 0)
+    {
+        WidgetActorReference = Cast<AWidgetActor>(FoundActors[0]);
+    }
 }
 
 // Called when the game starts or when spawned
@@ -192,10 +200,15 @@ void AMyCharacter::OnAttackOverlapBegin(UPrimitiveComponent *OverlappedComp, AAc
 			UHealthComponent* HealthComp = NPCCharacter->FindComponentByClass<UHealthComponent>();
 			if(HealthComp)
 			{
-				HealthComp->TakeDamage(20); // apply 20 damage
-				if(GEngine)
+				HealthComp->TakeDamage();
+				// get widget actor in the world to update health bar
+				if (WidgetActorReference)
 				{
-					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Sword Overlap with NPC Character - Damage Applied"));
+					UHealthBarWidget* HealthBar = WidgetActorReference->GameHUD;
+					if (HealthBar)
+					{
+						HealthBar->SetHealthPercentage(HealthComp->GetCurrentHealthPercent(), false);
+					}
 				}
 			}
 		}
@@ -204,13 +217,6 @@ void AMyCharacter::OnAttackOverlapBegin(UPrimitiveComponent *OverlappedComp, AAc
 void AMyCharacter::OnAttackOverlapEnd(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex)
 {
 	// other actor is the actor that is overlapping with the sword collider
-	if(OtherActor && (OtherActor != this) && OtherComp)
-	{
-		if(GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Sword Overlap Ended"));
-		}
-	}	
 }
 
 // attack function

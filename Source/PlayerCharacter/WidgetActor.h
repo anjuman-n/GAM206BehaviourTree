@@ -32,8 +32,5 @@ protected:
 	//end play
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
-
 	
-	
-
 };

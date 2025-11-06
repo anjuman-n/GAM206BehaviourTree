@@ -16,6 +16,13 @@
 //
 // include UUserWidget
 #include "HealthBarWidget.h"
+// include health component
+#include "HealthComponent.h"
+#include "Components/WidgetComponent.h"
+#include "Kismet/GameplayStatics.h"
+// include widget actor
+#include "WidgetActor.h"
+//
 //
 #include "Components/CapsuleComponent.h" // For GetCapsuleComponent()
 //include box component
@@ -80,12 +87,10 @@ protected:
 	// let's create a box collider component on the sword socket to detect hit
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Collider component")
 	class UBoxComponent* SwordCollisionBox;
-	//collider location setup in blueprint FVector BoxExtent
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Collider component")
-	FVector SwordBoxExtent = FVector(-2.0f, 0.0f, 0.0f);
-	//collider size setup in blueprint FVector BoxExtent
 
-
+	//get widget actor reference from blueprint
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="UI")
+	AWidgetActor* WidgetActorReference;
 
 
 public:	
@@ -127,9 +132,6 @@ public:
 	UFUNCTION()
 	void OnAttackOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
 		UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-
-
-
 
 
 };

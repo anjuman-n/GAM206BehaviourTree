@@ -23,7 +23,7 @@ void UHealthComponent::BeginPlay()
 	
 }
 
-void UHealthComponent::TakeDamage(int DamageAmount)// Handle taking damage
+void UHealthComponent::TakeDamage()// Handle taking damage
 {
 	if(isCanBeDamaged)
 	{
@@ -37,6 +37,18 @@ void UHealthComponent::TakeDamage(int DamageAmount)// Handle taking damage
 			Die();
 		}
 	}
+}
+int UHealthComponent::GetMaxHealth() const
+{
+    return MaxHealth;
+}
+int UHealthComponent::GetCurrentHealth() const 
+{
+	return CurrentHealth;
+}
+float UHealthComponent::GetCurrentHealthPercent()
+{
+	return static_cast<float>(CurrentHealth) / static_cast<float>(MaxHealth);
 }
 void UHealthComponent::Die()
 {

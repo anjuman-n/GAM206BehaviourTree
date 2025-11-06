@@ -6,12 +6,18 @@
 void UHealthBarWidget::NativeConstruct()
 {
     Super::NativeConstruct();
+    //get progress bar reference
+    
 }
 
-void UHealthBarWidget::SetHealthPercentage(float const HealthPercent)
+void UHealthBarWidget::SetHealthPercentage(float const HealthPercent, bool const bIsPlayer)
 {
-    if (HealthBar)
+    if (bIsPlayer && PlayerHealthBar)
     {
-      //  HealthBar->SetPercent(HealthPercent);
+      PlayerHealthBar->SetPercent(HealthPercent);
+    }
+    else if (EnemyHealthBar)
+    {
+      EnemyHealthBar->SetPercent(HealthPercent);
     }
 }

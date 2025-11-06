@@ -19,15 +19,25 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-	// 
+	//max health points
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Health")
-	int CurrentHealth;
+	int MaxHealth = 100;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Health")
+	int CurrentHealth = 100;
+	// take damage points
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Health")
+	int DamageAmount = 10;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Health")
 	bool isCanBeDamaged;
 	//
 	void Die();
 
 public:
-	void TakeDamage(int DamageAmount);
+	void TakeDamage();
 	
+	int GetMaxHealth() const; 
+	int GetCurrentHealth() const ;
+	float GetCurrentHealthPercent(); 
 };
