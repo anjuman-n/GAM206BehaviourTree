@@ -10,9 +10,21 @@
 #include "Animation/AnimMontage.h"
 #include "CombatInterface.h"
 //import health component
+//box component
+#include "Components/BoxComponent.h"
+//include character header file	
+//
 #include "HealthComponent.h"
 //
+// include widget actor
+#include "WidgetActor.h"
+//widget include
+#include "HealthBarWidget.h"
+#include "WidgetActor.h"
+//
 #include "NPCCharacter.generated.h"
+//forward declaration my character
+class AMyCharacter;
 
 UCLASS()
 class PLAYERCHARACTER_API ANPCCharacter : public ACharacter, public ICombatInterface
@@ -30,6 +42,12 @@ protected:
 	//create NPC box collider component to receive damage
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UHealthComponent* HealthComponent;
+	//	let's create a box collider component on the punch socket to detect hit
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Collider component")
+	class UBoxComponent* PunchCollisionBox;
+	////get widget actor reference from blueprint
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="UI")
+	AWidgetActor* WidgetActorReference;
 
 
 public:	
@@ -47,6 +65,16 @@ public:
 	UBehaviorTree* GetBehaviorTreeComponent() const;
 	// interface mellee attack function implementation
 	int MeleeAttack_Implementation() override;
+	// begin overlap collosinn function for punch collider
+	UFUNCTION()
+	void OnPunchCollisionBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	// end overlap collision function for punch collider
+	UFUNCTION()
+	void OnPunchCollisionEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+	//attack start	
+	void AttackStart();
+	//attack end	
+	void AttackEnd();		
 
 
 };

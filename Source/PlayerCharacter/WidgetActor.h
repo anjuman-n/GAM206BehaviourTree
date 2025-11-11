@@ -26,6 +26,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI", meta = (AllowPrivateAccess = "true"))
 	class UHealthBarWidget* GameHUD;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

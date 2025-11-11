@@ -9,6 +9,7 @@ AMyCharacter::AMyCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 90.0f);
+	
 		
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
@@ -202,6 +203,8 @@ void AMyCharacter::OnAttackOverlapBegin(UPrimitiveComponent *OverlappedComp, AAc
 			{
 				HealthComp->TakeDamage();
 				// get widget actor in the world to update health bar
+				if(GEngine) // For debugging purposes
+					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("NPC Current Health: %d"), HealthComp->GetCurrentHealth()));
 				if (WidgetActorReference)
 				{
 					UHealthBarWidget* HealthBar = WidgetActorReference->GameHUD;

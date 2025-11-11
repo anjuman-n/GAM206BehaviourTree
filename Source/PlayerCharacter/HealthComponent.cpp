@@ -6,49 +6,39 @@
 // Sets default values for this component's properties
 UHealthComponent::UHealthComponent()
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
 	// ...
 }
-
-
 // Called when the game starts
 void UHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
-	
 }
 
 void UHealthComponent::TakeDamage()// Handle taking damage
 {
 	if(isCanBeDamaged)
 	{
-		CurrentHealth -= DamageAmount;
-		if(GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Took %d damage, Current Health: %d"), DamageAmount, CurrentHealth));
-		}
+		CurrentHealth = CurrentHealth>=0 ? CurrentHealth - DamageAmount : 0;
 		if(CurrentHealth <= 0)
 		{
 			Die();
 		}
+		if(GEngine) // For debugging purposes
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Took %d damage, Current Health: %d"), DamageAmount, CurrentHealth));
 	}
 }
 int UHealthComponent::GetMaxHealth() const
 {
-    return MaxHealth;
+    return MaxHealth;//	 return max health points
 }
 int UHealthComponent::GetCurrentHealth() const 
 {
-	return CurrentHealth;
+	return CurrentHealth;// return current health points
 }
 float UHealthComponent::GetCurrentHealthPercent()
 {
-	return static_cast<float>(CurrentHealth) / static_cast<float>(MaxHealth);
+	return static_cast<float>(CurrentHealth) / static_cast<float>(MaxHealth); // return current health percentage
 }
 void UHealthComponent::Die()
 {
@@ -56,7 +46,13 @@ void UHealthComponent::Die()
 	AActor* Owner = GetOwner();
 	if(Owner)
 	{
-		Owner->Destroy();
+		//owner die after 2 seconds
+		//Call die montage animation here if needed
+		//then die after delay
+		Owner->SetLifeSpan(2.0f);
+		// or die instantly 
+		//owner->Destroy();
+		
 	}
 }		
 
