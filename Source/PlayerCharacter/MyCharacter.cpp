@@ -3,6 +3,7 @@
 
 #include "MyCharacter.h"
 
+
 // Sets default values
 AMyCharacter::AMyCharacter()
 {
@@ -54,6 +55,10 @@ AMyCharacter::AMyCharacter()
     {
         WidgetActorReference = Cast<AWidgetActor>(FoundActors[0]);
     }
+	//get audio components and store in array 	
+	
+	
+
 }
 
 // Called when the game starts or when spawned
@@ -90,6 +95,10 @@ void AMyCharacter::BeginPlay()
 		//set initial collision to no collision
 		AttackEnd();
 	}
+//
+
+	AudioCompSword = FindObject<UMyAudioComponent>(this, TEXT("SwordAttack"));
+
 
 }
 
@@ -115,8 +124,9 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 		// Bind jump input (calls Jump() when IA_Jump is triggered)
 		Input->BindAction(IA_Jump, ETriggerEvent::Triggered, this, &AMyCharacter::Jump);
 		//
-		Input->BindAction(IA_Attack, ETriggerEvent::Triggered, this, &AMyCharacter::Attack);
+		Input->BindAction(IA_Attack, ETriggerEvent::Triggered, this, &AMyCharacter::Attack_Implementation);
 		Input->BindAction(IA_Block, ETriggerEvent::Triggered, this, &AMyCharacter::Block);
+		//
 	}
 
 }
@@ -140,6 +150,8 @@ void AMyCharacter::Move(const FInputActionValue &InputValue)
 		AddMovementInput(ForwardDirection, InputVector.Y);
 		// Apply movement input along right/left
 		AddMovementInput(RightDirection, InputVector.X);
+		//get audio component and play footstep sound
+	
 	}
 }
 
@@ -201,16 +213,21 @@ void AMyCharacter::OnAttackOverlapBegin(UPrimitiveComponent *OverlappedComp, AAc
 			UHealthComponent* HealthComp = NPCCharacter->FindComponentByClass<UHealthComponent>();
 			if(HealthComp)
 			{
+				if (AudioCompSword != nullptr)
+				{
+					AudioCompSword->PlayAudio();	
+				}
+
 				HealthComp->TakeDamage();
-				// get widget actor in the world to update health bar
-				if(GEngine) // For debugging purposes
-					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("NPC Current Health: %d"), HealthComp->GetCurrentHealth()));
+				//
+			// update health bar widget
+			
 				if (WidgetActorReference)
 				{
-					UHealthBarWidget* HealthBar = WidgetActorReference->GameHUD;
+					UHealthBarWidget* HealthBar = WidgetActorReference->GameHUD; // Health Widget 
 					if (HealthBar)
 					{
-						HealthBar->SetHealthPercentage(HealthComp->GetCurrentHealthPercent(), false);
+						HealthBar->SetHealthPercentage(HealthComp->GetCurrentHealthPercent(), false); // set values
 					}
 				}
 			}
@@ -223,7 +240,7 @@ void AMyCharacter::OnAttackOverlapEnd(UPrimitiveComponent *OverlappedComp, AActo
 }
 
 // attack function
-void AMyCharacter::Attack()
+void AMyCharacter::Attack_Implementation()
 {
 	AttackStart();
     UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
@@ -238,6 +255,7 @@ void AMyCharacter::Attack()
     }
     else
     {
+		// if already attacking, increment combo count
 		AttackComboCount++;
 
     }
@@ -250,8 +268,6 @@ void AMyCharacter :: OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupt
     {
         bIsAttacking = false;
         AttackComboCount = 0;
-
-        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Montage Ended — Reset Combo"));
     }
 	AttackEnd();
 }
@@ -281,4 +297,13 @@ void AMyCharacter::Block()
 	{
 		AnimInstance->Montage_Play(BlockMontage);
 	}
+}
+// Interface die function implementation
+void AMyCharacter::Die_Implementation()
+{
+	if(DieMontage)
+	{
+		PlayAnimMontage(DieMontage);
+	}
+
 }

@@ -22,7 +22,7 @@ void AWidgetActor::BeginPlay()
 		GameHUD = CreateWidget<UHealthBarWidget>(GetWorld(), GameHUDClass);
 		if(GameHUD)
 		{
-			GameHUD->AddToViewport();
+			GameHUD->AddToViewport(); //
 		}
 	}
 	
@@ -33,7 +33,7 @@ void AWidgetActor::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	if(GameHUD)
 	{
-		GameHUD->RemoveFromParent();
+		GameHUD->RemoveFromParent(); //Remove from the viewport
 	}
 	Super::EndPlay(EndPlayReason);
 }

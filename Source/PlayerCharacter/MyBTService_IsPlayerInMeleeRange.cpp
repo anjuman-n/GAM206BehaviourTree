@@ -23,11 +23,12 @@ void UMyBTService_IsPlayerInMeleeRange::OnBecomeRelevant(UBehaviorTreeComponent 
     if(NPC && PlayerChar)
     {
         float Distance = FVector::Dist(NPC->GetActorLocation(), PlayerChar->GetActorLocation()); // Calculate distance between NPC and player
-       
+        
         if(Distance <= MeleeRange)
         {
             //set blackboard value
             OwnerComp.GetBlackboardComponent()->SetValueAsBool(GetSelectedBlackboardKey(), true); // Set blackboard key to true if within melee range
+            
         }
         else
         {
@@ -35,4 +36,3 @@ void UMyBTService_IsPlayerInMeleeRange::OnBecomeRelevant(UBehaviorTreeComponent 
         }
     }
 }
-

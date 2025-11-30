@@ -4,6 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+//include myaudio component for playing sounds on death
+#include "MyAudioComponent.h"
+//import combat interface
+#include "CombatInterface.h"
 #include "HealthComponent.generated.h"
 
 
@@ -31,6 +35,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Health")
 	bool isCanBeDamaged;
+	// life span after death
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Health")
+	float LifeSpanAfterDeath = 4.0f;
 	//
 	void Die();
 

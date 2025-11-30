@@ -21,19 +21,25 @@
 #include "Components/WidgetComponent.h"
 #include "Kismet/GameplayStatics.h"
 // include widget actor
+//audio component
+#include "MyAudioComponent.h"
+//
+
 #include "WidgetActor.h"
 //
 //
 #include "Components/CapsuleComponent.h" // For GetCapsuleComponent()
 //include box component
 #include "Components/BoxComponent.h"
+//import combat interface
+#include "CombatInterface.h"
 //npc character header
 #include "NPCCharacter.h"
 //
 #include "MyCharacter.generated.h"
 
 UCLASS()
-class PLAYERCHARACTER_API AMyCharacter : public ACharacter
+class PLAYERCHARACTER_API AMyCharacter : public ACharacter, public ICombatInterface
 {
 	GENERATED_BODY()
 
@@ -78,6 +84,9 @@ protected:
 	//Block montage when attack ends
 	UPROPERTY(EditAnywhere, Category = "Animation")
 	class UAnimMontage* BlockMontage;
+	// die montage
+	UPROPERTY(EditAnywhere, Category = "Animation")
+	class UAnimMontage* DieMontage;
     //
     int AttackComboCount = 0;
 	// stimulus to be used for sight
@@ -91,6 +100,11 @@ protected:
 	//get widget actor reference from blueprint
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="UI")
 	AWidgetActor* WidgetActorReference;
+	// audio component array
+
+	// get sword audio component
+	UMyAudioComponent* AudioCompSword = nullptr;
+
 
 
 public:	
@@ -102,12 +116,11 @@ public:
 	void Move(const FInputActionValue& InputValue);
 	void Look(const FInputActionValue& InputValue);
 	void Jump();
-	//attack function
-	UFUNCTION(BlueprintCallable)
-	void Attack();
+
 	//	callback for montage end
     UFUNCTION()
     void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+	
 	//block montage function
 	UFUNCTION(BlueprintCallable)
 	void Block();	
@@ -132,5 +145,9 @@ public:
 	UFUNCTION()
 	void OnAttackOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
 		UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-
+			//attack function
+	
+	void Attack_Implementation();
+	// interface die function implementation
+	void Die_Implementation() override;	
 };

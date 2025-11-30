@@ -21,7 +21,9 @@ class PLAYERCHARACTER_API ANPCAIController : public AAIController
 	class UAISenseConfig_Sight* SightConfig;
 	protected:
 	virtual void OnPossess(APawn* InPawn) override;//override the possess function
+	
 public:
+	float SightRadiusLocal;
 	explicit ANPCAIController(FObjectInitializer const& ObjectInitializer);//constructor
 // Function to set up the sight configuration
 	void setupSightConfig();

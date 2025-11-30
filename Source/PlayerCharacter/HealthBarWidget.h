@@ -19,12 +19,12 @@ class PLAYERCHARACTER_API UHealthBarWidget : public UUserWidget
 	private:
 	// Health bar progress
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget, allowPrivateAccess = true))//	 Bind to ProgressBar named HealthBar in UMG
-	class UProgressBar* EnemyHealthBar = nullptr;
+	class UProgressBar* EnemyHealthBar = nullptr; 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget, allowPrivateAccess = true))//	 Bind to ProgressBar named HealthBar in UMG
-	class UProgressBar* PlayerHealthBar = nullptr;
+	class UProgressBar* PlayerHealthBar = nullptr; 
 	public:
 	// Function to set health percentage
-	virtual void NativeConstruct() override;
+	virtual void NativeConstruct() override; 
 	
-	void SetHealthPercentage(float const HealthPercent, bool const bIsPlayer);
+	void SetHealthPercentage(float const HealthPercent, bool const bIsPlayer); // true if player, false if enemy
 };

@@ -31,7 +31,10 @@ EBTNodeResult::Type UMyBTTask_FindPlayer::ExecuteTask(UBehaviorTreeComponent& Ow
                 if (NavSys->GetRandomPointInNavigableRadius(PlayerLocation, 150.f,Loc))// if successful
                 {
                     OwnerComp.GetBlackboardComponent() -> SetValueAsVector(KeyName, Loc.Location);// set the location in the blackboard
+                   
                     
+
+
                     return EBTNodeResult::Succeeded;
                 }
             }

@@ -25,4 +25,8 @@ public:
 	//Mellee Attack function to be implemented by NPCs
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Combat")
 	int MeleeAttack();
+
+	// Die function to be implemented by NPCs
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Combat")
+	void Die();
 };

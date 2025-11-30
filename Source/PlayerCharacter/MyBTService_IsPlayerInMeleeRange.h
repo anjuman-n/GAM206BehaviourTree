@@ -30,5 +30,7 @@ class PLAYERCHARACTER_API UMyBTService_IsPlayerInMeleeRange : public UBTService_
 
 	
 	virtual void OnBecomeRelevant(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override; // Override the OnBecomeRelevant function
+	//tick node
+
 	
 };

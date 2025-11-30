@@ -23,6 +23,8 @@
 #include "WidgetActor.h"
 //
 #include "NPCCharacter.generated.h"
+
+
 //forward declaration my character
 class AMyCharacter;
 
@@ -51,13 +53,19 @@ protected:
 
 
 public:	
+// find radius for 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "sight")
+	float SightRadius = 100.f;
 	// attack montage
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
 	UAnimMontage* AttackMontage;
-
+	// die montage
+	UPROPERTY(EditAnywhere, Category = "Animation")
+	class UAnimMontage* DieMontage;
 	ANPCCharacter();
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -74,7 +82,9 @@ public:
 	//attack start	
 	void AttackStart();
 	//attack end	
-	void AttackEnd();		
+	void AttackEnd();	
+	// interface die function implementation
+	void Die_Implementation() override;	
 
 
 };

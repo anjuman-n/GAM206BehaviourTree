@@ -19,12 +19,10 @@ public:
 	// Sets default values for this actor's properties
 	AWidgetActor();
 	// progress bar widget reference
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI", meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI", meta = (AllowPrivateAccess = "true")) // 
 	TSubclassOf<class UHealthBarWidget> GameHUDClass = nullptr;
 	
 	// health bar widget instance
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI", meta = (AllowPrivateAccess = "true"))
 	class UHealthBarWidget* GameHUD;
 	
 protected:

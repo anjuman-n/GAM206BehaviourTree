@@ -10,7 +10,8 @@
 ANPCAIController::ANPCAIController(FObjectInitializer const& ObjectInitializer) : Super(ObjectInitializer)
 {
     setupSightConfig();
-    
+    //get sight radius from npccharacter
+ 
 }
 //override the possess function
 void ANPCAIController::OnPossess(APawn *InPawn)
@@ -32,14 +33,13 @@ void ANPCAIController::OnPossess(APawn *InPawn)
 // Function to set up the sight configuration
 void ANPCAIController::setupSightConfig()
 {
+
     SightConfig = CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("Sight Config"));
     if (SightConfig)
     {
-        if(GEngine)
-            GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Sight Config created successfully"));
-
+       
         SetPerceptionComponent (*CreateDefaultSubobject<UAIPerceptionComponent>(TEXT ("Perception Component")));// Create and set the perception component
-        SightConfig -> SightRadius = 600.f;// Set the sight radius
+        SightConfig -> SightRadius = SightRadiusLocal;// Set the sight radius
         SightConfig -> LoseSightRadius = SightConfig->SightRadius + 25.f;// Set the lose sight radius
         SightConfig->PeripheralVisionAngleDegrees = 90.f;// Set the peripheral vision angle
         SightConfig->SetMaxAge(5.f);// Set the max age of the sight stimulus

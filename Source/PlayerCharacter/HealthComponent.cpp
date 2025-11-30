@@ -17,15 +17,15 @@ void UHealthComponent::BeginPlay()
 
 void UHealthComponent::TakeDamage()// Handle taking damage
 {
+
 	if(isCanBeDamaged)
 	{
+
 		CurrentHealth = CurrentHealth>=0 ? CurrentHealth - DamageAmount : 0;
 		if(CurrentHealth <= 0)
 		{
 			Die();
 		}
-		if(GEngine) // For debugging purposes
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Took %d damage, Current Health: %d"), DamageAmount, CurrentHealth));
 	}
 }
 int UHealthComponent::GetMaxHealth() const
@@ -38,6 +38,7 @@ int UHealthComponent::GetCurrentHealth() const
 }
 float UHealthComponent::GetCurrentHealthPercent()
 {
+
 	return static_cast<float>(CurrentHealth) / static_cast<float>(MaxHealth); // return current health percentage
 }
 void UHealthComponent::Die()
@@ -49,10 +50,23 @@ void UHealthComponent::Die()
 		//owner die after 2 seconds
 		//Call die montage animation here if needed
 		//then die after delay
-		Owner->SetLifeSpan(2.0f);
+		Owner->SetLifeSpan(LifeSpanAfterDeath);
 		// or die instantly 
 		//owner->Destroy();
-		
+		// get audio component and play die sound if available
+		UMyAudioComponent* AudioCompDie = FindObject<UMyAudioComponent>(Owner, TEXT("DieSound"));
+
+		if (AudioCompDie)
+		{
+			AudioCompDie->PlayAudio();
+		}
+	
+		// get ICombatInterface from owner and call die function
+		if(auto* const CombatActor = Cast<ICombatInterface>(Owner))
+		{
+			if(CombatActor != nullptr)
+				CombatActor->Execute_Die(Owner);
+		}
 	}
 }		
 

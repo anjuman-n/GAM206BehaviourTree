@@ -2,6 +2,7 @@
 
 
 #include "NPCCharacter.h"
+
 #include "MyCharacter.h"   	 // Include MyCharacter header for casting
 // Sets default values
 ANPCCharacter::ANPCCharacter()
@@ -21,14 +22,7 @@ ANPCCharacter::ANPCCharacter()
 		AttackEnd();
 	}
 		//
-	// Automatically find the WidgetActor in the level
-    TArray<AActor*> FoundActors;
-    UGameplayStatics::GetAllActorsOfClass(GetWorld(), AWidgetActor::StaticClass(), FoundActors);
-
-    if (FoundActors.Num() > 0)
-    {
-        WidgetActorReference = Cast<AWidgetActor>(FoundActors[0]);
-    }
+	
 }
 
 // Called when the game starts or when spawned
@@ -42,7 +36,14 @@ void ANPCCharacter::BeginPlay()
 		PunchCollisionBox->OnComponentEndOverlap.AddDynamic(this, &ANPCCharacter::OnPunchCollisionEndOverlap);
 		
 	}
+// Automatically find the WidgetActor in the level
+    TArray<AActor*> FoundActors;
+    UGameplayStatics::GetAllActorsOfClass(GetWorld(), AWidgetActor::StaticClass(), FoundActors);
 
+    if (FoundActors.Num() > 0)
+    {
+        WidgetActorReference = Cast<AWidgetActor>(FoundActors[0]);
+    }
 }
 
 // Called every frame
@@ -76,7 +77,10 @@ int ANPCCharacter::MeleeAttack_Implementation()
 
 void ANPCCharacter::OnPunchCollisionBeginOverlap(UPrimitiveComponent *OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
 {
-		
+	if(GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Punch Collision Detected"));
+	}
 	if(OtherActor == this)
 	{	
 		return;
@@ -85,7 +89,7 @@ void ANPCCharacter::OnPunchCollisionBeginOverlap(UPrimitiveComponent *Overlapped
 	if(OtherActor)
 	{
 		if(GEngine) // For debugging purposes
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Punch Overlap with: %s"), *OtherActor->GetName()));
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Punch Overlap with: %s"), *OtherActor->GetName()));
 
 		AMyCharacter* MyCharacter = Cast<AMyCharacter>(OtherActor);
 		if(MyCharacter)
@@ -96,17 +100,19 @@ void ANPCCharacter::OnPunchCollisionBeginOverlap(UPrimitiveComponent *Overlapped
 			{
 				HealthComp->TakeDamage();
 				// get widget actor in the world to update health bar
-				if(GEngine) // For debugging purposes
-					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Player Current Health: %d"), HealthComp->GetCurrentHealth()));
+	
 				// Update health bar widget
 				if (WidgetActorReference)
 				{
+					
 					UHealthBarWidget* HealthBar = WidgetActorReference->GameHUD;
+
 					if (HealthBar)
 					{
-						HealthBar->SetHealthPercentage(HealthComp->GetCurrentHealthPercent(), true);
+						HealthBar->SetHealthPercentage(HealthComp->GetCurrentHealthPercent(), true); // set values true for NPC
 					}
 				}
+				
 			}
 		}
 	}
@@ -133,5 +139,13 @@ void ANPCCharacter::AttackEnd()
 	{
 		PunchCollisionBox->SetCollisionProfileName("Punch");//set collision profile to weapon to detect hit
 		PunchCollisionBox->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	}
+}
+// Interface die function implementation
+void ANPCCharacter::Die_Implementation()
+{
+	if(DieMontage)
+	{
+		PlayAnimMontage(DieMontage);
 	}
 }
